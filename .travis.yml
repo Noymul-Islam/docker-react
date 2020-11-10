@@ -1,8 +1,10 @@
-language: node_js
-
 sudo: required
 services:
   - docker
 
 before_install:
   - docker build -t shorot120/docker-react -f Dockerfile.dev .
+
+
+  script:
+    - docker run shorot120/docker-react npm run test -- --coverage
